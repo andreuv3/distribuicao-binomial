@@ -7,9 +7,9 @@ def distribuicao_binomial(n, x, p, q):
     return round(combinacao(n, x) * pow(p, x) * pow(q, (n - x)), 4)
 
 def probabilidade_individual():
-    n = int(input('Digite o valor de n: '))
-    x = int(input('Digite o valor de x: '))
-    p_percentual = float(input('Digite a probabilidade de n (em percentual, por exemplo, para 90% digite "90"): '))
+    n = int(input('Informe o número de observações: '))
+    x = int(input('Informe o número de casos de sucesso: '))
+    p_percentual = float(input('Digite a probabilidade de sucesso (em percentual, por exemplo, para 90% digite "90"): '))
     p = p_percentual / 100
     q = (100 - p_percentual) / 100
     r = distribuicao_binomial(n, x, p, q)
