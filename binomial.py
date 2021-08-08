@@ -13,10 +13,22 @@ def probabilidade_individual():
     p = p_percentual / 100
     q = (100 - p_percentual) / 100
     r = distribuicao_binomial(n, x, p, q)
-    print(f'O resultado é: {r:.4f}')
+    r_percentual = r * 100
+    print(f'O resultado é: {r:.4f}. Em percentual: {r_percentual:.2f}%')
 
 def probabilidade_acumulada():
-    pass
+    n = int(input('Informe o número de observações: '))
+    x = int(input('Informe o número máximo de casos de sucesso: '))
+    p_percentual = float(input('Digite a probabilidade de sucesso (em percentual, por exemplo, para 90% digite "90"): '))
+    p = p_percentual / 100
+    q = (100 - p_percentual) / 100
+    r = 0
+    i = 0
+    while i <= x:
+        r += distribuicao_binomial(n, i, p, q)
+        i += 1
+    r_percentual = r * 100
+    print(f'O resultado é: {r:.4f}. Em percentual: {r_percentual:.2f}%')
 
 def menu():
     print('*-------------------------------------------*')
@@ -42,6 +54,5 @@ def main():
     else:
         menu()
     
-
 if __name__ == '__main__':
     main()
